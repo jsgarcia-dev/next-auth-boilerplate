@@ -1,4 +1,3 @@
-import { LoginForm } from "@/components/form/login-form";
 import { currentUser } from "@/lib/auth";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -14,18 +13,13 @@ export default async function Home() {
     <div>
       <div>
         <h1>Bem-vindo à Página Inicial</h1>
-        {!user ? (
-          <Link href="/login">
-            <button>Login</button>
+
+        <div className="mt-5">
+          <p>Olá, {user?.name}!</p>
+          <Link href="/dashboard">
+            <button className="underline">Ir para o Dashboard</button>
           </Link>
-        ) : (
-          <div>
-            <p>Olá, {user?.name}!</p>
-            <Link href="/dashboard">
-              <button>Ir para o Dashboard</button>
-            </Link>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );

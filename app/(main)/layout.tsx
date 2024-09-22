@@ -1,10 +1,17 @@
 import Navbar from "@/app/_components/navbar";
+import NavbarMobile from "../_components/navbar";
+import Provider from "../_components/provider";
 
-export default async function MainLayout({ children }: { children: React.ReactNode }) {
+export default async function MainLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <>
+    <Provider>
       <Navbar />
-      <main className="mx-12 mt-12">{children}</main>
-    </>
+      <NavbarMobile />
+      <main className="max-w-7xl mx-auto pt-24">{children}</main>
+    </Provider>
   );
 }
