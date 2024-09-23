@@ -61,14 +61,16 @@ export const login = async (payload: z.infer<typeof loginSchema>) => {
       success: false,
       error: {
         code: 401,
-        message: "Your email address is not verified yet. Please check your email.",
+        message:
+          "Your email address is not verified yet. Please check your email.",
       },
     });
   }
 
   // Check if user's 2FA are enabled
   if (existingUser.isTwoFactorEnabled && existingUser.email) {
-    const existingTwoFactorConfirmation = await getTwoFactorConfirmationByUserId(existingUser.id);
+    const existingTwoFactorConfirmation =
+      await getTwoFactorConfirmationByUserId(existingUser.id);
     const hasExpired = isExpired(existingTwoFactorConfirmation?.expires!);
 
     // If two factor confirmation exist and expired, then delete it.
@@ -136,7 +138,7 @@ export const signInCredentials = async (email: string, password: string) => {
             },
           });
 
-        case "AuthorizedCallbackError":
+        case "CallbackRouteError":
           return response({
             success: false,
             error: {
