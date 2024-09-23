@@ -8,6 +8,7 @@ interface CardWrapperProps {
   backButtonLabel?: string;
   backButtonHref?: string;
   onBackButtonClick?: () => void;
+  heroImage?: string;
   children: ReactNode;
 }
 

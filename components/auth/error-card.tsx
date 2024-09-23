@@ -8,7 +8,7 @@ type ErrorCardProps = {
 
 export const ErrorCard = ({ message }: ErrorCardProps) => {
   let headerDescription =
-    "Oops! Something went wrong. Please contact administrator for more details or try again later.";
+    "Oops! Algo deu errado. Por favor, entre em contato com o administrador para mais detalhes ou tente novamente mais tarde.";
 
   if (!message) {
     redirect("/login");
@@ -16,16 +16,22 @@ export const ErrorCard = ({ message }: ErrorCardProps) => {
 
   if (message === "OAuthAccountNotLinked") {
     headerDescription =
-      "Another account already registered with the same Email Address. Please login the different one.";
+      "Outra conta já está registrada com o mesmo endereço de e-mail. Por favor, faça login com a conta diferente.";
   }
 
   return (
     <CardWrapper
-      headerTitle="An Error Occured"
+      headerTitle="Ocorreu um Erro"
       headerDescription={headerDescription}
-      backButtonLabel="Back to login"
+      backButtonLabel="Voltar para o login"
       backButtonHref="/login"
       heroImage="/assets/error.svg"
-    />
+    >
+      <div className="text-center">
+        <p className="text-sm text-gray-600 mt-4">
+          Código do erro: {message || "Desconhecido"}
+        </p>
+      </div>
+    </CardWrapper>
   );
 };

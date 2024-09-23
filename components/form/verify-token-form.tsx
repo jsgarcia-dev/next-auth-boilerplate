@@ -18,6 +18,12 @@ export const NewVerificationForm = ({ data }: NewVerificationFormProps) => {
       backButtonLabel="Back to login"
       backButtonHref="/login"
       heroImage="/assets/email-verified.svg"
-    />
+    >
+      <div className="text-center">
+        <p className="text-sm text-gray-600 mt-4">
+          Your account is now fully activated and ready to use.
+        </p>
+      </div>
+    </CardWrapper>
   );
 };
