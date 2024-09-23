@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface CardWrapperProps {
   headerTitle: string;
@@ -18,10 +19,24 @@ export const CardWrapper = ({
   backButtonLabel,
   backButtonHref,
   onBackButtonClick,
+  heroImage,
   children,
 }: CardWrapperProps) => {
   return (
     <div className="max-w-md mx-auto">
+      {heroImage && (
+        <div className="flex justify-center mb-4">
+          <Image
+            src={heroImage}
+            width={48}
+            height={48}
+            quality={100}
+            alt="Imagem de destaque"
+            style={{ objectFit: "contain" }}
+            className="w-48 h-48"
+          />
+        </div>
+      )}
       <div className="text-center mb-6">
         <h2 className="text-2xl font-semibold">{headerTitle}</h2>
         {headerDescription && (

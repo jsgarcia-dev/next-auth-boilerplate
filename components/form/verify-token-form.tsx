@@ -3,7 +3,7 @@ import type { Response } from "@/types";
 import { redirect } from "next/navigation";
 
 type NewVerificationFormProps = {
-  data: Response;
+  data: { success: boolean };
 };
 
 export const NewVerificationForm = ({ data }: NewVerificationFormProps) => {

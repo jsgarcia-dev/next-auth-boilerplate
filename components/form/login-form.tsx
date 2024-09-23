@@ -13,7 +13,7 @@ import { FormInput } from "@/components/auth/form-input";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useModalStore } from "@/store/modal";
-import { Social } from "@/components/auth/social"; // Importe o SocialButtons
+import { Social } from "@/components/auth/social";
 
 export const LoginForm = () => {
   const router = useRouter();
