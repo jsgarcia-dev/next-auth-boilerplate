@@ -8,7 +8,13 @@ export const LoginBtn = () => {
 
   return (
     <>
-      <Button onClick={() => openModal("login")}>Entrar</Button>
+      <Button
+        variant="ghost"
+        className="ring-[2px] ring-zinc-700/60 w-14 h-8 hover:bg-zinc-100"
+        onClick={() => openModal("login")}
+      >
+        Entrar
+      </Button>
     </>
   );
 };

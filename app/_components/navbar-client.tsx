@@ -17,7 +17,6 @@ type UserInfo = {
 export const NavbarMobileClient = ({ userInfo }: { userInfo: UserInfo }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Verifica se o usuário é admin
   const isAdmin = userInfo?.role === "Admin";
 
   const navigation = [
@@ -44,7 +43,7 @@ export const NavbarMobileClient = ({ userInfo }: { userInfo: UserInfo }) => {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/">
-              <span className="text-xl font-semibold">Revit-alize</span>
+              <span className="text-xl font-semibold">Next.js Template</span>
             </Link>
             <div className="hidden md:flex md:items-center md:space-x-4 sm:ml-5">
               {navigation.map((item) => (
@@ -87,7 +86,7 @@ export const NavbarMobileClient = ({ userInfo }: { userInfo: UserInfo }) => {
         <div className="flex justify-between items-center p-4">
           {/* Logo */}
           <Link href="/">
-            <span className="text-xl font-semibold">Revit-alize</span>
+            <span className="text-xl font-semibold">Next.js Template</span>
           </Link>
           <Button
             variant="ghost"
