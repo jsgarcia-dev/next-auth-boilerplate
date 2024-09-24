@@ -62,7 +62,8 @@ export const login = async (payload: z.infer<typeof loginSchema>) => {
       error: {
         code: 401,
         message:
-          "Your email address is not verified yet. Please check your email.",
+          "Seu endereço de e-mail ainda não foi verificado. Por favor, verifique seu e-mail.",
+        needsVerification: true,
       },
     });
   }

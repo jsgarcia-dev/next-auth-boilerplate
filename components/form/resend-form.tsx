@@ -11,17 +11,19 @@ import { resendToken } from "@/actions/resend";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useModalStore } from "@/store/modal";
 
 export const ResendForm = () => {
+  const { setView } = useModalStore();
   const [isPending, startTransition] = useTransition();
   const form = useForm<z.infer<typeof resendSchema>>({
     resolver: zodResolver(resendSchema),
     defaultValues: {
-      email: ""
-    }
-  })
+      email: "",
+    },
+  });
 
-  const handleSubmit = form.handleSubmit(values => {
+  const handleSubmit = form.handleSubmit((values) => {
     startTransition(() => {
       resendToken(values).then((data) => {
         if (data.success) {
@@ -29,14 +31,14 @@ export const ResendForm = () => {
         }
         return toast.error(data.error.message);
       });
-    })
+    });
   });
   return (
     <CardWrapper
-      headerTitle="Resend Confirmation"
-      headerDescription="The verification link will expires after a hour. If you don't verify your email within a hour, you can request another email verification link."
-      backButtonLabel="Back to login"
-      backButtonHref="/login"
+      headerTitle="Reenviar Confirmação"
+      headerDescription="O link de verificação expirará após uma hora. Se você não verificar seu e-mail dentro de uma hora, você pode solicitar outro link de verificação por e-mail."
+      backButtonLabel="Voltar para o login"
+      onBackButtonClick={() => setView("login")}
     >
       <Form {...form}>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -48,7 +50,9 @@ export const ResendForm = () => {
             placeholder="e.g. johndoe@example.com"
             isPending={isPending}
           />
-          <Button type="submit" disabled={isPending} className="w-full">Resend</Button>
+          <Button type="submit" disabled={isPending} className="w-full">
+            Resend
+          </Button>
         </form>
       </Form>
     </CardWrapper>

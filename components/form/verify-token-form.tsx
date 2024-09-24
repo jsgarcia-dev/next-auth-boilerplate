@@ -13,15 +13,15 @@ export const NewVerificationForm = ({ data }: NewVerificationFormProps) => {
 
   return (
     <CardWrapper
-      headerTitle="Email Address Verified!"
-      headerDescription="Congratulations! You have successfully verified your email address. You can now use your account to login to the website."
-      backButtonLabel="Back to login"
+      headerTitle="Endereço de E-mail Verificado!"
+      headerDescription="Parabéns! Você verificou seu endereço de e-mail com sucesso. Agora você pode usar sua conta para fazer login no site."
+      backButtonLabel="Voltar para o login"
       backButtonHref="/login"
       heroImage="/assets/email-verified.svg"
     >
       <div className="text-center">
         <p className="text-sm text-gray-600 mt-4">
-          Your account is now fully activated and ready to use.
+          Sua conta agora está totalmente ativada e pronta para uso.
         </p>
       </div>
     </CardWrapper>

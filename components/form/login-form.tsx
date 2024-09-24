@@ -36,7 +36,22 @@ export const LoginForm = () => {
         .then((data) => {
           if (!data) return;
           if (!data.success) {
-            return toast.error(data.error.message);
+            if (data.error.needsVerification) {
+              toast.error(
+                <div>
+                  {data.error.message}{" "}
+                  <button
+                    onClick={() => setView("resend")}
+                    className="underline font-semibold"
+                  >
+                    Verificar conta agora
+                  </button>
+                </div>
+              );
+            } else {
+              toast.error(data.error.message);
+            }
+            return;
           }
           return router.push("/two-factor");
         })

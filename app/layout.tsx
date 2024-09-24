@@ -26,7 +26,7 @@ export default function RootLayout({
         <Provider>
           <main className="flex-grow">{children}</main>
           <AuthModal />
-          <Toaster position="bottom-left" richColors theme="light" />
+          <Toaster position="top-right" richColors theme="light" />
         </Provider>
       </body>
     </html>

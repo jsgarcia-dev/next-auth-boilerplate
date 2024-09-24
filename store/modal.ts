@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 type ModalState = {
   isOpen: boolean;
-  view: "login" | "register" | "reset";
+  view: "login" | "register" | "reset" | "resend";
   openModal: (view: ModalState["view"]) => void;
   closeModal: () => void;
   setView: (view: ModalState["view"]) => void;
