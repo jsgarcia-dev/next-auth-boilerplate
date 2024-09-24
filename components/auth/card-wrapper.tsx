@@ -52,7 +52,7 @@ export const CardWrapper = ({
             <Button
               size="sm"
               variant="link"
-              className="p-0 text-xs text-blue-500 w-full justify-center"
+              className="p-0 text-xs text-black w-full justify-center underline"
               onClick={onBackButtonClick}
               type="button"
             >

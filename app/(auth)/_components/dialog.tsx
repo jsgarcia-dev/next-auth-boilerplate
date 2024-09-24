@@ -22,7 +22,7 @@ export const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div
-        className="absolute inset-0 bg-black opacity-50"
+        className="absolute inset-0 bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm"
         onClick={onClose}
       ></div>
       <div className="relative bg-white p-6 rounded-md z-10 max-w-md w-full">

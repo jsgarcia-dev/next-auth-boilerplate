@@ -8,11 +8,12 @@ import { useForm } from "react-hook-form";
 import { resetPasswordSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
 import { resetPassword } from "@/actions/reset-password";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useModalStore } from "@/store/modal";
+import DynamicButton from "@/app/_components/dynamic-button";
+import { Mail } from "lucide-react";
 
 export const ResetForm = () => {
   const router = useRouter();
@@ -53,11 +54,15 @@ export const ResetForm = () => {
             label="Endereço de Email"
             type="email"
             placeholder="ex: johndoe@example.com"
+            icon={<Mail className="h-4 w-4 text-muted-foreground" />}
             isPending={isPending}
           />
-          <Button type="submit" disabled={isPending} className="w-full">
-            Enviar link de redefinição
-          </Button>
+          <DynamicButton
+            type="submit"
+            text="Enviar link de redefinição"
+            disabled={isPending}
+            className="w-full"
+          />
         </form>
       </Form>
     </CardWrapper>

@@ -13,6 +13,8 @@ import { register } from "@/actions/register";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useModalStore } from "@/store/modal";
+import DynamicButton from "@/app/_components/dynamic-button";
+import { Lock, Mail } from "lucide-react";
 
 export const RegisterForm = () => {
   const router = useRouter();
@@ -64,6 +66,7 @@ export const RegisterForm = () => {
               label="Endereço de Email"
               type="email"
               placeholder="ex: johndoe@example.com"
+              icon={<Mail className="h-4 w-4 text-muted-foreground" />}
               isPending={isPending}
             />
             <FormInput
@@ -72,12 +75,16 @@ export const RegisterForm = () => {
               label="Senha"
               type="password"
               placeholder="******"
+              icon={<Lock className="h-4 w-4 text-muted-foreground" />}
               isPending={isPending}
             />
           </div>
-          <Button type="submit" disabled={isPending} className="w-full">
-            Criar conta
-          </Button>
+          <DynamicButton
+            type="submit"
+            text="Criar conta"
+            disabled={isPending}
+            className="w-full"
+          />
         </form>
       </Form>
     </CardWrapper>
