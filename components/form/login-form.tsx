@@ -42,7 +42,7 @@ export const LoginForm = () => {
                   {data.error.message}{" "}
                   <button
                     onClick={() => setView("resend")}
-                    className="underline font-semibold"
+                    className="underline font-bold"
                   >
                     Verificar conta agora
                   </button>

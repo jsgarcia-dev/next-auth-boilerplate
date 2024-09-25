@@ -47,6 +47,6 @@ export const resendToken = async (payload: z.infer<typeof resendSchema>) => {
   return response({
     success: true,
     code: 201,
-    message: "Confirmation email sent. Please check your email.",
+    message: "E-mail de confirmação enviado. Por favor, verifique seu e-mail.",
   });
 };

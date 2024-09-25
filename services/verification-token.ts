@@ -6,15 +6,13 @@ export const createVerificationToken = async (email: string) => {
   const existingToken = await getVerificationTokenByEmail(email);
 
   if (existingToken && new Date() < existingToken.expires) {
-    // Se existir um token não expirado, retorna o token existente
     return existingToken;
   } else if (existingToken) {
-    // Se o token existente estiver expirado, deleta-o
     await deleteVerificationTokenById(existingToken.id);
   }
 
   const token = uuid();
-  const expires = setTokenExpiration(); // Defina o tempo de expiração conforme necessário
+  const expires = setTokenExpiration();
 
   const verificationToken = await db.verificationToken.create({
     data: {
@@ -37,6 +35,18 @@ export const generateVerificationToken = async (email: string) => {
 };
 
 export const getVerificationTokenByToken = async (token: string) => {
+  try {
+    const verificationToken = await db.verificationToken.findUnique({
+      where: { token },
+    });
+    return verificationToken;
+  } catch (error) {
+    console.error("Erro ao buscar o token de verificação:", error);
+    return null;
+  }
+};
+
+export const getVerificationToken = async (token: string) => {
   try {
     const verificationToken = await db.verificationToken.findUnique({
       where: { token },

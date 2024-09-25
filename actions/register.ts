@@ -1,7 +1,6 @@
 "use server";
 
 import { z } from "zod";
-
 import { registerSchema } from "@/schemas";
 import { createUser, getUserByEmail } from "@/services/user";
 import { hashPassword, response } from "@/lib/utils";
@@ -9,8 +8,6 @@ import { createVerificationToken } from "@/services/verification-token";
 import { sendVerificationEmail } from "@/services/mail";
 
 export const register = async (payload: z.infer<typeof registerSchema>) => {
-  let user;
-
   const validatedFields = registerSchema.safeParse(payload);
   if (!validatedFields.success) {
     return response({
@@ -36,30 +33,18 @@ export const register = async (payload: z.infer<typeof registerSchema>) => {
 
   try {
     const hashedPassword = await hashPassword(password);
-
-    user = await createUser({
+    const user = await createUser({
       name,
       email,
       password: hashedPassword,
     });
 
     if (!user) {
-      return response({
-        success: false,
-        error: {
-          code: 500,
-          message: "Não foi possível criar o usuário.",
-        },
-      });
+      throw new Error("Falha ao criar usuário");
     }
 
-    const verificationToken = await createVerificationToken(
-      user.email as string
-    );
-    await sendVerificationEmail(
-      verificationToken.email,
-      verificationToken.token
-    );
+    const verificationToken = await createVerificationToken(email);
+    await sendVerificationEmail(email, verificationToken.token);
 
     return response({
       success: true,
