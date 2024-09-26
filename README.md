@@ -58,7 +58,7 @@ O **next-auth-boilerplate** é uma base pronta para desenvolver aplicações web
 
    Copie o arquivo `.env.example` para `.env` utilizando o comando abaixo:
 
-   ``cp .env.example .env`
+   `cp .env.example .env`
 
 4. **Configure o Banco de Dados:**
 
