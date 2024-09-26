@@ -15,7 +15,7 @@ export default async function Home() {
         <h1>Bem-vindo à Página Inicial</h1>
 
         <div className="mt-5">
-          <p>Olá, {user?.name}!</p>
+          {user && <p>Olá, {user.name}!</p>}
           <Link href="/dashboard">
             <button className="underline">Ir para o Dashboard</button>
           </Link>

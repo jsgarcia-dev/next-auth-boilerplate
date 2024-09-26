@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# next-auth-boilerplate
 
-## Getting Started
+Este é um **boilerplate** para autenticação utilizando [Next.js](https://nextjs.org/) e [NextAuth.js](https://next-auth.js.org/). Este projeto serve como ponto de partida para aplicações que necessitam de funcionalidades de autenticação robustas e seguras.
 
-First, run the development server:
+## Índice
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Visão Geral](#visão-geral)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Funcionalidades](#funcionalidades)
+- [Instalação](#instalação)
+- [Como Usar](#como-usar)
+- [Scripts Disponíveis](#scripts-disponíveis)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Visão Geral
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O **next-auth-boilerplate** é uma base pronta para desenvolver aplicações web modernas com autenticação integrada. Utilizando as melhores práticas e ferramentas do ecossistema Next.js, este boilerplate facilita a configuração e personalização de funcionalidades de login, registro, proteção de rotas e gerenciamento de sessões.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tecnologias Utilizadas
 
-## Learn More
+- **[Next.js](https://nextjs.org/):** Framework React para aplicações de renderização do lado do servidor e geração de sites estáticos.
+- **[NextAuth.js](https://next-auth.js.org/):** Solução completa para autenticação em aplicações Next.js.
+- **[TypeScript](https://www.typescriptlang.org/):** Superset do JavaScript que adiciona tipagem estática.
+- **[Prisma](https://www.prisma.io/):** ORM para gerenciamento de banco de dados.
+- **[Tailwind CSS](https://tailwindcss.com/):** Framework CSS utilitário para estilização rápida e responsiva.
+- **[Vercel](https://vercel.com/):** Plataforma para deploy de aplicações Next.js.
 
-To learn more about Next.js, take a look at the following resources:
+## Funcionalidades
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Autenticação:** Suporte a provedores de autenticação como GitHub, Google, e credenciais personalizadas.
+- **Proteção de Rotas:** Páginas protegidas acessíveis apenas para usuários autenticados.
+- **Gerenciamento de Sessões:** Sessões de usuário persistentes e seguras.
+- **Integração com Banco de Dados:** Configuração simplificada com Prisma para operações de banco de dados.
+- **Interface Responsiva:** Design responsivo utilizando Tailwind CSS.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Instalação
 
-## Deploy on Vercel
+1. **Clone o Repositório:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash:/README.md
+   git clone https://github.com/seu-usuario/next-auth-boilerplate.git
+   cd next-auth-boilerplate
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. **Instale as Dependências:**
+
+   ```bash:/README.md
+   npm install
+   # ou
+   yarn install
+   # ou
+   pnpm install
+   ```
+
+3. **Configure as Variáveis de Ambiente:**
+
+   Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+   ```env:/.env
+   DATABASE_URL=postgres://usuario:senha@localhost:5432/nome_do_banco
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=seu_segredo
+   ```
+
+   Substitua os valores conforme a sua configuração.
+
+4. **Configure o Banco de Dados:**
+
+   Execute as migrações do Prisma para configurar o banco de dados:
+
+   ```bash:/README.md
+   npx prisma migrate dev --name init
+   ```
+
+## Como Usar
+
+1. **Inicie o Servidor de Desenvolvimento:**
+
+   ```bash:/README.md
+   npm run dev
+   # ou
+   yarn dev
+   # ou
+   pnpm dev
+   # ou
+   bun dev
+   ```
+
+2. **Acesse a Aplicação:**
+
+   Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver a aplicação em funcionamento.
+
+3. **Autentique-se:**
+
+   Utilize os provedores de autenticação configurados para fazer login e acessar as funcionalidades protegidas.
+
+## Scripts Disponíveis
+
+- **`npm run dev`** - Inicia o servidor de desenvolvimento.
+- **`npm run build`** - Compila a aplicação para produção.
+- **`npm run start`** - Inicia o aplicativo em modo de produção.
+- **`npm run lint`** - Executa o linter para verificar padrões de código.
+- **`npm run format`** - Formata o código utilizando Prettier.
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir **issues** ou enviar **pull requests** para melhorar este boilerplate.
+
+1. **Fork o Repositório**
+2. **Crie uma Branch para sua Feature** (`git checkout -b feature/nova-feature`)
+3. **Commit suas Alterações** (`git commit -m 'Adiciona nova feature'`)
+4. **Push para a Branch** (`git push origin feature/nova-feature`)
+5. **Abra um Pull Request**
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](./LICENSE).
+
+---
+
+Projeto criado com ❤️ por [Seu Nome](https://github.com/seu-usuario)

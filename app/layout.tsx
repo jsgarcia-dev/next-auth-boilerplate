@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthModal } from "./(auth)/_components/auth-modal";
 import Provider from "./_components/provider";
+import localFont from "next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -21,8 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+    <html lang="pt-BR">
+      <body
+        className={`$${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen`}
+      >
         <Provider>
           <main className="flex-grow">{children}</main>
           <AuthModal />
