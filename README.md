@@ -56,15 +56,9 @@ O **next-auth-boilerplate** é uma base pronta para desenvolver aplicações web
 
 3. **Configure as Variáveis de Ambiente:**
 
-   Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+   Copie o arquivo `.env.example` para `.env` utilizando o comando abaixo:
 
-   ```env:/.env
-   DATABASE_URL=postgres://usuario:senha@localhost:5432/nome_do_banco
-   NEXTAUTH_URL=http://localhost:3000
-   NEXTAUTH_SECRET=seu_segredo
-   ```
-
-   Substitua os valores conforme a sua configuração.
+   ``cp .env.example .env`
 
 4. **Configure o Banco de Dados:**
 
@@ -120,4 +114,4 @@ Este projeto está licenciado sob a [MIT License](./LICENSE).
 
 ---
 
-Projeto criado com ❤️ por [Seu Nome](https://github.com/seu-usuario)
+Projeto criado com ❤️ por [Julio Garcia](https://github.com/jsgarcia-dev)
