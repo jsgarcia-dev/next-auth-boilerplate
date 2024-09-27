@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <div>
       <div>
-        <h1>Bem-vindo à Página Inicial</h1>
+        <h1 className="font-geist-sans text-xl">Bem-vindo à Página Inicial</h1>
 
         <div className="mt-5">
           {user && <p>Olá, {user.name}!</p>}
